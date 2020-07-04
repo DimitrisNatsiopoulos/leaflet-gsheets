@@ -26,14 +26,6 @@ window.addEventListener("DOMContentLoaded", init);
 // Create a new Leaflet map centered on the continental US
 var map = L.map("map").setView([40, -100], 4);
 
- L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoic3RldmVuc2F0Y2giLCJhIjoiY2p5eDR6MWgzMHRvbjNocnJkN2d2MjRwaSJ9.wd0OtBUQQfUtNxdduQA3lg', {
-        maxZoom: 18,
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        id: 'mapbox.streets'
-    }).addTo(mymap);
-
 //InitMap
 function initMap() {
     map.locate({setView: true, maxZoom: 16});
@@ -220,6 +212,7 @@ var circle = L.circle([40.5, -100], {
         sidebar.open(panelID);
       }
     });
+    
     marker.on('drag', function(e) {
     var d = mymap.distance(e.latlng, circle.getLatLng());
     var isInside = d < circle.getRadius();
