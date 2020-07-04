@@ -140,7 +140,15 @@ function addPoints(data) {
     pointGroupLayer.remove();
   }
   pointGroupLayer = L.layerGroup().addTo(map);
+  
+  //Adding 2 new FIX Markers
+  
+  var marker1 = L.marker([40.5, -100]).addTo(mymap);
+  var marker2 = L.marker([42.5, -100]).addTo(mymap);
 
+  marker1.bindPopup("<b>This is Point1</b><br>I am a popup.").openPopup();
+  marker2.bindPopup("<b>This is Point1</b><br>I am a popup.").openPopup();
+  
   // Choose marker type. Options are:
   // (these are case-sensitive, defaults to marker!)
   // marker: standard point with an icon
