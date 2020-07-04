@@ -210,6 +210,10 @@ var circle = L.circle([40.5, -100], {
         document.getElementById("sidebar-content").innerHTML =
           e.target.feature.properties.category;
         sidebar.open(panelID);
+        var d = mymap.distance(e.latlng, circle.getLatLng());
+    var isInside = d < circle.getRadius();
+    circle.setStyle({
+        fillColor: isInside ? 'green' : '#f03'
       }
     });
     
