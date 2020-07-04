@@ -154,11 +154,13 @@ function addPoints(data) {
   marker1.bindPopup("<b>This is Point1</b><br>I am a popup.").openPopup();
   marker2.bindPopup("<b>This is Point1</b><br>I am a popup.").openPopup();
   
-  var polygon = L.polygon([
-    [40.509, -0.100],
-    [41.503, -0.106],
-    [41.51, -0.107]
-]).addTo(mymap);
+  //Add Zone with Cicle 
+var circle = L.circle([40.5, -100], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 200
+}).addTo(mymap);
   
   // Choose marker type. Options are:
   // (these are case-sensitive, defaults to marker!)
