@@ -212,7 +212,13 @@ var circle = L.circle([40.5, -100], {
         sidebar.open(panelID);
       }
     });
-
+    marker.on('drag', function(e) {
+    var d = mymap.distance(e.latlng, circle.getLatLng());
+    var isInside = d < circle.getRadius();
+    circle.setStyle({
+        fillColor: isInside ? 'green' : '#f03'
+    })
+});
     // AwesomeMarkers is used to create fancier icons
     var icon = L.AwesomeMarkers.icon({
       icon: "info-sign",
