@@ -26,6 +26,11 @@ window.addEventListener("DOMContentLoaded", init);
 // Create a new Leaflet map centered on the continental US
 var map = L.map("map").setView([40, -100], 4);
 
+//InitMap
+function initMap() {
+    map.locate({setView: true, maxZoom: 16});
+}
+
 // This is the Carto Positron basemap
 var basemap = L.tileLayer(
   "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}{r}.png",
@@ -148,6 +153,12 @@ function addPoints(data) {
 
   marker1.bindPopup("<b>This is Point1</b><br>I am a popup.").openPopup();
   marker2.bindPopup("<b>This is Point1</b><br>I am a popup.").openPopup();
+  
+  var polygon = L.polygon([
+    [40.509, -0.100],
+    [41.503, -0.106],
+    [41.51, -0.107]
+]).addTo(mymap);
   
   // Choose marker type. Options are:
   // (these are case-sensitive, defaults to marker!)
